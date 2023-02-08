@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* user select prompt x/o #0top laptop = -3% moniter = 0%*/
+#o {
+    padding: 0px 10px 0px 10px;
+    position: absolute;
+    top: -0%; left: 50%;
+    transform: translatex(-50%) translateY(-105%) scale(-1, -1);
+}
+#x {
+    padding: 0px 10px 0px 10px;
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translatex(-50%) translateY(5%);
+}
+
+#container {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translatex(-50%) translateY(-50%);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 385px; height: 380px;
+    border-radius: 15px;
+
+}
+
+#container div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 6px solid #FF0000;
+    box-shadow: 5px 5px 15px #cd0202;
+    width: 115px; height: 115px;
+    cursor: pointer;
+}
+
+.x, .o{
+    font-size: 100px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translatex(-50%) translateY(-50%);
+}
+
+.hide {
+    opacity: 0;
+}
+
+/* make board dynamic and fix turn indicator movement*/
