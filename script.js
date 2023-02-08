@@ -12,7 +12,7 @@ var turnval = false;
 // x is red to show it starts first
 xTurn.setAttribute(
   "style",
-  "color: red; text-shadow: 3px 1px rgb(105, 104, 104); border: 4px solid black;"
+  "color: red; text-shadow: 3px 1px rgb(105, 104, 104); border-bottom: 4px solid white;"
 );
 
 //hides all x and o on board
@@ -52,7 +52,7 @@ for (let i = 0; i < boxes.length; i++) {
       xTurn.setAttribute("style", "color: black;");
       oTurn.setAttribute(
         "style",
-        "color: red; text-shadow: 2px 2px rgb(105, 104, 104); border: 4px solid black"
+        "color: red; text-shadow: 2px 2px rgb(105, 104, 104); border-bottom: 4px solid white"
       );
       game.xState.push(boxes[i].dataset.value);
       turnval = !turnval;
@@ -67,7 +67,7 @@ for (let i = 0; i < boxes.length; i++) {
       oTurn.setAttribute("style", "color: black;");
       xTurn.setAttribute(
         "style",
-        "color: red; text-shadow: 2px 2px rgb(105, 104, 104); border: 4px solid black"
+        "color: red; text-shadow: 2px 2px rgb(105, 104, 104); border-bottom: 4px solid white"
       );
       game.oState.push(boxes[i].dataset.value);
       turnval = !turnval;
@@ -79,16 +79,28 @@ for (let i = 0; i < boxes.length; i++) {
       const oWins = winningState.every((state) => game.oState.includes(state));
 
       if (game.xState.length >= 5) {
-        xTurn.setAttribute("style", "color: black; border: none;");
-        oTurn.setAttribute("style", "color: black; border: none;");
+        xTurn.setAttribute("style", "color: white; border: none;");
+        oTurn.setAttribute("style", "color: white; border: none;");
         xTurn.innerText = "draw!";
         oTurn.innerText = "draw!";
       }
       if (xWins) {
+        winningState
+          .filter((state) => game.xState.includes(state))
+          .forEach((x) => {
+            boxes[x].setAttribute("style", "color: red;");
+          });
+        xTurn.setAttribute("style", "color: white");
         xTurn.innerText = "winner!";
         oTurn.classList.add("hide");
       }
       if (oWins) {
+        winningState
+          .filter((state) => game.oState.includes(state))
+          .forEach((o) => {
+            boxes[o].setAttribute("style", "color: red;");
+          });
+        oTurn.setAttribute("style", "color: white");
         oTurn.innerText = "winner!";
         xTurn.classList.add("hide");
       }
