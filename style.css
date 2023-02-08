@@ -13,7 +13,6 @@ body {
     flex-direction: column;
     background-color: black;
     color: white;
-
 }
 
 /* user select prompt x/o #0top laptop = -3% moniter = 0%*/
@@ -67,4 +66,9 @@ body {
     opacity: 0;
 }
 
+@media only screen and (max-width: 400px){
+    body {
+        overflow: hidden;
+    }
+}
 /* make board dynamic and fix turn indicator movement*/
